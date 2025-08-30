@@ -1,0 +1,193 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    font-family: "Manrope";
+}
+
+body {
+    background-color: #FDFCFA;
+    overflow: hidden;
+}
+
+/* Container Layout */
+.container {
+    position: relative;
+    display: flex;
+    z-index: 3;
+    margin-top: 100px;
+    margin-bottom: 40px;
+    margin-right: 100px;
+    margin-left: 100px;
+    animation: fadeInUp 1s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Parallax Layer */
+.parallax-layer {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/* Column Layout */
+.column {
+    float: left;
+    width: 50%;
+    padding: 20px;
+}
+
+.column-title {
+    margin: 0;
+}
+
+@keyframes slideRight {
+    0% {
+        left: -100%;
+    }
+    100% {
+        left: 0;
+    }
+}
+
+#name {
+    font-size: x-large;
+    margin: 0;
+}
+
+#title {
+    font-size: large;
+    margin: 0;
+}
+
+/* Project Column */
+
+.project:hover .details {
+    display: block;
+}
+
+.project h3 {
+    font-size: x-large;
+    padding-right: 5px;
+    margin-bottom: 0px;
+}
+
+.project a {
+    text-decoration: none;
+    color: initial; 
+}
+
+.project:hover h3 {
+    transition: color 0.3s ease, background-color 0.3s ease;
+    color: #fff;
+    background-color: #080808;
+}
+
+.details {
+    display: none;
+    position: absolute;
+    border: 1px solid #080808;
+    border-color: #080808;
+    border-radius: 3px;
+    padding: 20px;
+    background-color: #fff;
+    color: #080808;
+}
+
+/* Mobile  */
+@media (max-width: 768px) {
+    .parallax-layer {
+        transform: translateY(10%);
+        transition: transform 0.3s ease;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    .column {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .container {
+        margin: 20px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .project a {
+        pointer-events: none;
+    }
+
+    .image-container img {
+        width: 20%;
+        max-width: 60px;
+    }
+
+    .details {
+        width: 90%;
+        max-width: 300px;
+    }
+}
+
+/* For small devices */
+@media (max-width: 480px) {
+    .parallax-layer {
+        transform: translateY(10%);
+        transition: transform 0.3s ease;
+    }
+
+    body {
+        overflow: visible;
+    }
+
+    .column {
+        width: 100%;
+        padding: 5px;
+    }
+
+    h1,
+    h2,
+    h3 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 12px;
+    }
+
+    .project a {
+        pointer-events: none;
+    }
+
+    .image-container img {
+        width: 30%;
+        max-width: 50px;
+    }
+
+    .details {
+        padding: 15px;
+    }
+
+    .details p {
+        font-size: 12px;
+    }
+}
