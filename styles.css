@@ -135,10 +135,6 @@ body {
         font-size: 14px;
     }
 
-    .project a {
-        pointer-events: none;
-    }
-
     .project h3 {
         font-size: 20px;
         margin-top: 10px;
@@ -183,10 +179,6 @@ body {
 
     p {
         font-size: 12px;
-    }
-
-    .project a {
-        pointer-events: none;
     }
 
     .project h3 {
