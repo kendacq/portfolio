@@ -1,4 +1,4 @@
-const screenWidthThreshold = 768;
+const screenWidthThreshold = 1024; // Tablets max width
 
 document.addEventListener('mousemove', function (e) {
     if (window.innerWidth > screenWidthThreshold) {
@@ -13,7 +13,7 @@ document.addEventListener('mousemove', function (e) {
     }
 });
 
-if (window.innerWidth < screenWidthThreshold) {
+if (window.innerWidth <= screenWidthThreshold) {
     document.querySelectorAll('.project').forEach(project => {
         const link = project.querySelector('a');
         if (!link) return;
@@ -28,5 +28,9 @@ if (window.innerWidth < screenWidthThreshold) {
         const linkPara = document.createElement('p');
         linkPara.innerHTML = `<b>Link:</b> <a href="${href}" target="_blank">${href}</a>`;
         details.appendChild(linkPara);
+    });
+
+    document.querySelectorAll('.info').forEach(info => {
+        info.textContent = " Tap project title to show details.";
     });
 }
