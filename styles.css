@@ -105,9 +105,8 @@ body {
 
 /* Mobile  */
 @media (max-width: 768px) {
-    .parallax-layer {
-        transform: translateY(10%);
-        transition: transform 0.3s ease;
+    .background, .foreground {
+        transform: none !important;
     }
 
     body {
@@ -150,9 +149,8 @@ body {
 
 /* For small devices */
 @media (max-width: 480px) {
-    .parallax-layer {
-        transform: translateY(10%);
-        transition: transform 0.3s ease;
+    .background, .foreground {
+        transform: none !important;
     }
 
     body {
