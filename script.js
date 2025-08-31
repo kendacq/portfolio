@@ -13,16 +13,20 @@ document.addEventListener('mousemove', function (e) {
     }
 });
 
-document.querySelectorAll('.project').forEach(project => {
-    const link = project.querySelector('a');
-    const h3 = link.querySelector('h3');
-    const href = link.getAttribute('href');
+if (window.innerWidth < screenWidthThreshold) {
+    document.querySelectorAll('.project').forEach(project => {
+        const link = project.querySelector('a');
+        if (!link) return;
 
-    const newH3 = h3.cloneNode(true);
-    link.replaceWith(newH3);
+        const h3 = link.querySelector('h3');
+        const href = link.getAttribute('href');
 
-    const details = project.querySelector('.details');
-    const linkPara = document.createElement('p');
-    linkPara.innerHTML = `<b>Link:</b> <a href="${href}" target="_blank">${href}</a>`;
-    details.appendChild(linkPara);
-});
+        const newH3 = h3.cloneNode(true);
+        link.replaceWith(newH3);
+
+        const details = project.querySelector('.details');
+        const linkPara = document.createElement('p');
+        linkPara.innerHTML = `<b>Link:</b> <a href="${href}" target="_blank">${href}</a>`;
+        details.appendChild(linkPara);
+    });
+}
