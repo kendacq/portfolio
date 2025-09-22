@@ -1,5 +1,6 @@
 const screenWidthThreshold = 1024; // Tablets max width
 
+// === Parallax for desktop ===
 document.addEventListener('mousemove', function (e) {
     if (window.innerWidth > screenWidthThreshold) {
         const background = document.querySelector('.background');
@@ -13,24 +14,30 @@ document.addEventListener('mousemove', function (e) {
     }
 });
 
+// === Mobile/tablet behavior ===
 if (window.innerWidth <= screenWidthThreshold) {
     document.querySelectorAll('.project').forEach(project => {
         const link = project.querySelector('a');
-        if (!link) return;
+        let h3;
 
-        const h3 = link.querySelector('h3');
-        const href = link.getAttribute('href');
+        if (link) {
+            h3 = link.querySelector('h3');
+            const href = link.getAttribute('href');
 
-        const newH3 = h3.cloneNode(true);
-        link.replaceWith(newH3);
+            const newH3 = h3.cloneNode(true);
+            link.replaceWith(newH3);
+            h3 = newH3;
 
-        const details = project.querySelector('.details');
-        const linkPara = document.createElement('p');
-        linkPara.innerHTML = `<b>Link:</b> <a href="${href}" target="_blank">${href}</a>`;
-        details.appendChild(linkPara);
+            const details = project.querySelector('.details');
+            const linkPara = document.createElement('p');
+            linkPara.innerHTML = `<b>Link:</b> <a href="${href}" target="_blank">${href}</a>`;
+            details.appendChild(linkPara);
+        } else {
+            h3 = project.querySelector('h3');
+        }
     });
 
     document.querySelectorAll('.info').forEach(info => {
-        info.textContent = " Tap project title to show details.";
+        info.textContent = " Tap project title to show/hide details.";
     });
 }
