@@ -6,6 +6,7 @@
 
 body {
     background-color: #FDFCFA;
+    padding-bottom: 300px;
 }
 
 body::-webkit-scrollbar {
@@ -38,12 +39,19 @@ i {
     overflow-wrap: break-word;
     text-decoration: none;
     color: initial;
+    text-align: center;
+}
+
+#resume-label {
+    color: #fff;
+    background-color: #080808;
+    border-radius: 3px;
 }
 
 #resume-label:hover {
     transition: color 0.3s ease, background-color 0.3s ease;
-    color: #fff;
-    background-color: #080808;
+    color: #000;
+    background-color: #fff;
 }
 
 /* Container Layout */
@@ -51,10 +59,7 @@ i {
     position: relative;
     display: flex;
     z-index: 3;
-    margin-top: 100px;
-    margin-bottom: 40px;
-    margin-right: 100px;
-    margin-left: 100px;
+    margin: 100px;
     animation: fadeInUp 1s ease-out forwards;
 }
 
@@ -95,29 +100,25 @@ i {
 .column {
     flex: 1;
     width: 60%;
+    margin: 5px;
 }
 
 .column-title {
     margin: 0;
 }
 
-@keyframes slideRight {
-    0% {
-        left: -100%;
-    }
-
-    100% {
-        left: 0;
-    }
-}
-
-/* Project Column */
-.project:hover .details {
-    display: block;
+/* Project */
+.project {
+    position: relative;
 }
 
 .project h3 {
     margin-top: 10px;
+    border-radius: 3px;
+    text-align: center;
+    color: #fff;
+    background-color: #080808;
+    cursor: pointer;
 }
 
 .project a {
@@ -126,34 +127,40 @@ i {
     color: initial;
 }
 
-.project:hover h3 {
+.project.active h3 {
     transition: color 0.3s ease, background-color 0.3s ease;
-    color: #fff;
-    background-color: #080808;
+    color: #000;
+    background-color: #fff;
 }
 
+/* Details box */
 .details {
     display: none;
     position: absolute;
     border: 1px solid #080808;
-    border-color: #080808;
     border-radius: 3px;
     padding: 20px;
     font-size: clamp(0.875rem, 1vw + 0.1rem, 1rem);
     background-color: #fff;
     color: #080808;
+    z-index: 10;
 }
 
-/* For Medium sized devices  */
-@media (max-width: 992px) {
+.project.active .details {
+    display: block;
+}
 
-    .background,
-    .foreground {
-        transform: none !important;
+/* Desktop hover effect */
+@media (hover: hover) and (pointer: fine) {
+    .project:hover .details {
+        display: block;
     }
+}
 
+/* Medium devices */
+@media (max-width: 992px) {
     body {
-        overflow: visible;
+        padding-bottom: 800px;
     }
 
     .container {
@@ -170,33 +177,20 @@ i {
         padding: 10px;
     }
 
-    .project h3 {
-        margin-top: 14px;
-    }
-
     .details {
+        position: absolute;
         width: 90%;
-    }
-
-    .project a {
-        text-decoration: underline;
     }
 }
 
-/* For Small devices  */
+/* Small devices */
 @media (max-width: 768px) {
-
-    .background,
-    .foreground {
-        transform: none !important;
-    }
-
     body {
-        overflow: visible;
+        padding-bottom: 800px;
     }
 
     .container {
-        margin: 20px;
+        margin: 10px;
         flex-direction: column;
     }
 
@@ -209,25 +203,16 @@ i {
         padding: 10px;
     }
 
-    .project h3 {
-        margin-top: 10px;
-    }
-
-    .project a {
-        text-decoration: underline;
+    .details {
+        position: absolute;
+        width: 100%;
     }
 }
 
-/* For XS devices */
+/* Extra small devices */
 @media (max-width: 480px) {
-
-    .background,
-    .foreground {
-        transform: none !important;
-    }
-
     body {
-        overflow: visible;
+        padding-bottom: 800px;
     }
 
     .column {
@@ -236,11 +221,8 @@ i {
         flex-direction: column;
     }
 
-    .project h3 {
-        margin-top: 10px;
-    }
-
-    .project a {
-        text-decoration: underline;
+    .details {
+        position: absolute;
+        width: 100%;
     }
 }
