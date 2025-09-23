@@ -6,7 +6,7 @@
 
 body {
     background-color: #FDFCFA;
-    padding-bottom: 300px;
+    padding-bottom: 500px;
 }
 
 body::-webkit-scrollbar {
@@ -57,10 +57,28 @@ i {
 /* Container Layout */
 .container {
     position: relative;
-    display: flex;
     z-index: 3;
-    margin: 100px;
+    margin: 100px auto;
+    max-width: 1200px;
     animation: fadeInUp 1s ease-out forwards;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.row.single .column {
+    flex: 1 1 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.row.double .column {
+    flex: 1 1 45%;
+    margin: 10px;
 }
 
 .image-container {
